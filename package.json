@@ -15,7 +15,6 @@
     "concurrently": "^8.2.2"
   },
   "dependencies": {
-    "dotenv": "^16.4.1",
-    "express-validator": "^7.0.1"
+    "dotenv": "^16.4.1"
   }
 }
