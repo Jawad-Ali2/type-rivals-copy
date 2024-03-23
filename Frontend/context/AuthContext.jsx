@@ -56,7 +56,7 @@ export function AuthProvider({ children }) {
   async function getCsrfToken() {
     try {
       const response = await axios.get(`${backendUrl}/csrf-token`, {
-        withCredentials: "include",
+        withCredentials: true,
       });
 
       if (response.status === 200) {

@@ -19,9 +19,8 @@ const corsOrigin =
 const cookiesOptions = {
   secure: process.env.NODE_ENV === "production" ? true : false,
   signed: true,
-  sameSite: false,
+  sameSite: "none",
 };
-
 const app = express();
 
 const {
