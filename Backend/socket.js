@@ -5,13 +5,18 @@ const {
   disconnectUser,
 } = require("./utils/race");
 
+const corsOrigin =
+  process.env.NODE_ENV === "production"
+    ? process.env.CORS_ORIGIN
+    : "http://localhost:5173";
+
 let io;
 
 module.exports = {
   init: (httpServer) => {
     io = require("socket.io")(httpServer, {
       cors: {
-        origin: "http://localhost:5173",
+        origin: [corsOrigin],
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true, // enable cookies and credentials
       },
