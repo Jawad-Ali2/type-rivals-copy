@@ -12,7 +12,7 @@ const corsOrigin =
 const cookiesOptions = {
   secure: process.env.NODE_ENV === "production" ? true : false,
   signed: true,
-  sameSite: process.env.NODE_ENV === "production" ? "none" : false,
+  sameSite: process.env.NODE_ENV === "production" ? "lax" : "lax",
 };
 
 let io;
@@ -25,6 +25,7 @@ module.exports = {
         methods: ["GET", "POST"],
         credentials: true,
       },
+      cookie: cookiesOptions,
     });
 
     io.on("connection", (socket) => {
