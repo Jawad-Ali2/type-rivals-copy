@@ -1,0 +1,30 @@
+.audio-btn{
+    color: var(--foreground-div-color);
+    transition: all 0.1s ease-in;
+}
+
+.audio-btn:hover{
+    scale: 115%;
+}
+.narrator-icon{
+    filter:invert(1);
+}
+input[type="range"]{
+    appearance: none;
+    background: var(--invert-text-color);
+    height: 4px;
+    border-radius: 20px;
+}
+.invert-input {
+    background: var(--narrator-color) !important;
+}
+.invert-input::-webkit-slider-thumb {
+    background: var(--narrator-color) !important;
+}
+input[type="range"]::-webkit-slider-thumb{
+    appearance: none;
+    background: var(--invert-text-color);
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+}
