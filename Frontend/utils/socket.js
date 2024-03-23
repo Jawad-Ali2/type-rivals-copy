@@ -5,17 +5,7 @@ let socket = null;
 
 const createConnection = (token) => {
   if (!socket) {
-    socket = io(
-      `${backendUrl}`,
-
-      {
-        secure: true,
-        withCredentials: true,
-        extraHeaders: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    socket = io(`${backendUrl}`);
   }
   return socket;
 };
