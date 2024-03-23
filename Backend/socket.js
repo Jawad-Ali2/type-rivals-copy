@@ -9,6 +9,11 @@ const corsOrigin =
   process.env.NODE_ENV === "production"
     ? process.env.CORS_ORIGIN
     : "http://localhost:5173";
+const cookiesOptions = {
+  secure: process.env.NODE_ENV === "production" ? true : false,
+  signed: true,
+  sameSite: process.env.NODE_ENV === "production" ? "none" : false,
+};
 
 let io;
 
@@ -17,9 +22,10 @@ module.exports = {
     io = require("socket.io")(httpServer, {
       cors: {
         origin: [corsOrigin],
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
         credentials: true, // enable cookies and credentials
       },
+      cookie: cookiesOptions,
     });
 
     io.on("connection", (socket) => {
