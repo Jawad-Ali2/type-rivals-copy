@@ -21,11 +21,10 @@ module.exports = {
   init: (httpServer) => {
     io = require("socket.io")(httpServer, {
       cors: {
-        origin: [corsOrigin],
-        methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-        credentials: true, // enable cookies and credentials
+        origin: corsOrigin,
+        methods: ["GET", "POST"],
+        credentials: true,
       },
-      cookie: cookiesOptions,
     });
 
     io.on("connection", (socket) => {
