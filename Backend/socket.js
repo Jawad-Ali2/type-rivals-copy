@@ -9,10 +9,11 @@ const corsOrigin =
   process.env.NODE_ENV === "production"
     ? process.env.CORS_ORIGIN
     : "http://localhost:5173";
+
 const cookiesOptions = {
   secure: process.env.NODE_ENV === "production" ? true : false,
   signed: true,
-  sameSite: process.env.NODE_ENV === "production" ? "lax" : "lax",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : false,
 };
 
 let io;
